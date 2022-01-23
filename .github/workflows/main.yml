@@ -31,7 +31,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ${{ secrets.DOCKER_USERNAME }}/ms-srt-client
+        repository: ${{ secrets.DOCKER_USERNAME }}/ms-srt-users
         target: release
         tags: latest
         add_git_labels: true
