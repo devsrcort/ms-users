@@ -9,7 +9,7 @@ USER root
 RUN rm -rf node_modules \
  && chown -R node /opt/app
 
-USER node
+# USER node
 
 
 FROM base as release
@@ -19,7 +19,7 @@ RUN npm install --only=production \
  #&& apk add --no-cache tini \
  && chown -R node /opt/app
 
-USER node
+# USER node
 ENV HOME_DIR=/opt/app \
     NODE_ENV=production \
     PORT=5501
@@ -33,6 +33,6 @@ RUN npm install -g nodemon \
  && npm install \
  && chown -R node /opt/app
 
-USER node
+# USER node
 
 ENTRYPOINT ./shell/run-db-migration.sh && node server.js
