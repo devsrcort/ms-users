@@ -18,6 +18,7 @@ USER root
 RUN npm install --only=production \
  #&& apk add --no-cache tini \
  && chown -R node /opt/app
+RUN chmod 755 ./shell/run-db-migration.sh
 
 # USER node
 ENV HOME_DIR=/opt/app \
@@ -32,6 +33,7 @@ USER root
 RUN npm install -g nodemon \
  && npm install \
  && chown -R node /opt/app
+RUN chmod 755 ./shell/run-db-migration.sh
 
 # USER node
 
