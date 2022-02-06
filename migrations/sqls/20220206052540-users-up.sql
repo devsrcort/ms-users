@@ -1,4 +1,5 @@
 /* Replace with your SQL commands */
+DROP TABLE `users`;
 
 CREATE TABLE `users` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
