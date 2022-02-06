@@ -38,7 +38,7 @@ services:
     ## ports:
     ##   - 5306:3306
     ports:
-      - 3306
+      - 33125:3306
     expose:
       - 33125
     env_file:

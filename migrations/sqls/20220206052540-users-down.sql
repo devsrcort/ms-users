@@ -1,3 +1,2 @@
 /* Replace with your SQL commands */
-
-TRUNCATE TABLE `users`;
+DROP TABLE `users`;
