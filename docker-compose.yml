@@ -18,6 +18,7 @@ services:
     ports:
       - 33123:5501
     env_file:
+      - ./firebase.env
       - ./database.env
     links:
       - ms-srt-users-db
