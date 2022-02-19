@@ -24,9 +24,17 @@ function serviceRoutes(app) {
     app.use(check.express());
 
     /* eslint-disable global-require */
-    let corsOptions = {
-        origin: 'https://srt-wallet.io'
-    }
+
+    // Temporary allow all urls
+    const safesitelist = ['https://srt-wallet.io', 'https://app.srt-wallet.io', '*'];
+
+    const corsOptions = {
+        origin: function(origin, callback) {
+            const issafesitelisted = safesitelist.indexOf(origin) !== -1;
+            callback(null, issafesitelisted);
+        },
+        credentials: true
+    };
 
     app.use(cors(corsOptions));
     app.use('/users', require('users')); // attach to sub-route
