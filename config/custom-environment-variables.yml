@@ -11,3 +11,4 @@ firebase:
   storageBucket: FIREBASE_STORAGEBUCKET
   messagingSenderId: FIREBASE_MSG_SENDER_ID
   appId: FIREBASE_APP_ID
+  adminConfigFilePath: FIREBASE_ADMIN_FILE_PATH
