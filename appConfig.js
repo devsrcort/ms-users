@@ -26,7 +26,7 @@ function serviceRoutes(app) {
     /* eslint-disable global-require */
 
     // Temporary allow all urls
-    const safesitelist = ['https://srt-wallet.io', 'https://app.srt-wallet.io', '*'];
+    const safesitelist = ['https://srt-wallet.io', 'https://app.srt-wallet.io', 'https://admin.srt-wallet.io'];
 
     const corsOptions = {
         origin: function(origin, callback) {
