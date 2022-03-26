@@ -24,8 +24,6 @@
     "duration": "^0.2.2",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
-    "firebase": "^9.6.7",
-    "firebase-admin": "^10.0.2",
     "glob": "^7.1.6",
     "hbs": "^4.1.0",
     "helmet": "^4.4.1",
