@@ -3,10 +3,10 @@
 name: DEV_CICD
 
 # Controls when the workflow will run
-on:
+#on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ Dev_JWT  ]
+#  push:
+#    branches: [ Dev_JWT  ]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
