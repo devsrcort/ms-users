@@ -47,6 +47,7 @@ function serviceRoutes(app) {
     app.use(cors(corsOptions));
     app.use("/users", require("users")); // attach to sub-route
     // app.use('/register', require('users')); // attach to sub-route
+    // Trigge Test
     /* eslint-enable global-require */
 }
 
