@@ -31,9 +31,12 @@ jobs:
         images: |
           devsrcorp/ms-dev-srt-users
         tags: |
-          type=ref,event=branch
-          type=ref,event=pr
-          type=sha
+          type=raw,value=dev_nigthly
+# type=ref,event=branch
+# type=ref,event=tag
+# type=ref,event=pr
+# type=sha
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
