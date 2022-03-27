@@ -5,8 +5,9 @@ name: CICD
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  branches:
-    - Dev_JWT
+  push:
+    branches:
+      - Dev_JWT
       
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,7 +30,7 @@ jobs:
       uses: docker/metadata-action@v3
       with:
         images: |
-          devsrcorp/ms-srt-users
+          devsrcorp/ms-dev-srt-users
         tags: |
           type=ref,event=branch
           type=ref,event=pr
@@ -48,5 +49,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
+        tags: latest
         labels: ${{ steps.meta.outputs.labels }}
