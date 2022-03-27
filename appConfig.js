@@ -7,6 +7,12 @@ const hbs = require("hbs");
 const cors = require("cors");
 
 require("app-module-path").addPath(path.join(__dirname, "/lib"));
+const dotenv = require('dotenv');
+const passport = require('passport');
+const passportConfig = require('auth');
+
+dotenv.config();
+passportConfig();
 
 // Add all routes and route-handlers for your service/app here:
 function serviceRoutes(app) {
@@ -34,6 +40,7 @@ function serviceRoutes(app) {
             "https://dev.srt-wallet.io",
             "https://dev.app.srt-wallet.io",
             "https://dev.admin.srt-wallet.io",
+            "*"
         ];
 
     const corsOptions = {
@@ -41,8 +48,11 @@ function serviceRoutes(app) {
             const issafesitelisted = safesitelist.indexOf(origin) !== -1;
             callback(null, issafesitelisted);
         },
+
         credentials: true,
     };
+
+    app.use(passport.initialize());
 
     app.use(cors(corsOptions));
     app.use("/users", require("users")); // attach to sub-route

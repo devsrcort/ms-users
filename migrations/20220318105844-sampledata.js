@@ -1,11 +1,11 @@
 'use strict';
 
-var dbm;
-var type;
-var seed;
-var fs = require('fs');
-var path = require('path');
-var Promise;
+let dbm;
+let type;
+let seed;
+const fs = require('fs');
+const path = require('path');
+let Promise;
 
 /**
  * We receive the dbmigrate dependency from dbmigrate initially.
@@ -19,7 +19,7 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-    var filePath = path.join(__dirname, 'sqls', '20220318105844-sampledata-up.sql');
+    const filePath = path.join(__dirname, 'sqls', '20220318105844-sampledata-up.sql');
     const allowed = ["dev", "qa"];
     if (!allowed.includes(db.internals.argv.env)) {
         console.log(`Environment is not ${allowed}. Skipping ${filePath}`);
@@ -39,7 +39,7 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-    var filePath = path.join(__dirname, 'sqls', '20220318105844-sampledata-down.sql');
+    const filePath = path.join(__dirname, 'sqls', '20220318105844-sampledata-down.sql');
     const allowed = ["dev", "qa"];
     if (!allowed.includes(db.internals.argv.env)) {
         console.log(`Environment is not ${allowed}. Skipping ${filePath}`);
