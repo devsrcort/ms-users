@@ -4,6 +4,8 @@ const helmet = require("helmet");
 const log = require("metalogger")();
 const healthcheck = require("maikai");
 const hbs = require("hbs");
+const session = require('express-session');
+
 const cors = require("cors");
 
 require("app-module-path").addPath(path.join(__dirname, "/lib"));
@@ -12,7 +14,7 @@ const passport = require('passport');
 const passportConfig = require('auth');
 
 dotenv.config();
-passportConfig();
+passportConfig(passport);
 
 // Add all routes and route-handlers for your service/app here:
 function serviceRoutes(app) {
@@ -52,7 +54,18 @@ function serviceRoutes(app) {
         credentials: true,
     };
 
+    app.use(session({
+        resave: false,
+        saveUninitialized: false,
+        secret: process.env.COOKIE_SECRET,
+        cookie: {
+            httpOnly: true,
+            secure: false,
+        },
+    }));
+
     app.use(passport.initialize());
+    app.use(passport.session());
 
     app.use(cors(corsOptions));
     app.use("/users", require("users")); // attach to sub-route
