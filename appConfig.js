@@ -14,7 +14,7 @@ const passport = require('passport');
 const passportConfig = require('auth');
 
 dotenv.config();
-passportConfig(passport);
+passportConfig();
 
 // Add all routes and route-handlers for your service/app here:
 function serviceRoutes(app) {
@@ -33,11 +33,18 @@ function serviceRoutes(app) {
     /* eslint-disable global-require */
 
     // Temporary allow all urls
-    const safesitelist = [
-        "https://srt-wallet.io",
-        "https://app.srt-wallet.io",
-        "https://admin.srt-wallet.io",
-    ];
+    const safesitelist =
+        process.env.NODE_ENV == "production" ? [
+            "https://srt-wallet.io",
+            "https://app.srt-wallet.io",
+            "https://admin.srt-wallet.io",
+        ] : [
+            "https://dev.srt-wallet.io",
+            "https://dev.app.srt-wallet.io",
+            "https://dev.admin.srt-wallet.io",
+            "http://localhost:34129",
+            "*"
+        ];
 
     const corsOptions = {
         origin: function(origin, callback) {
