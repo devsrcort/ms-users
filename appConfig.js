@@ -14,7 +14,7 @@ const passport = require('passport');
 const passportConfig = require('auth');
 
 dotenv.config();
-passportConfig(passport);
+passportConfig();
 
 // Add all routes and route-handlers for your service/app here:
 function serviceRoutes(app) {
@@ -42,6 +42,7 @@ function serviceRoutes(app) {
             "https://dev.srt-wallet.io",
             "https://dev.app.srt-wallet.io",
             "https://dev.admin.srt-wallet.io",
+            "http://localhost:34129",
             "*"
         ];
 
