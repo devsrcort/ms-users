@@ -42,7 +42,6 @@ function serviceRoutes(app) {
             "https://dev.srt-wallet.io",
             "https://dev.app.srt-wallet.io",
             "https://dev.admin.srt-wallet.io",
-            "http://localhost:34129",
             "*"
         ];
 
