@@ -39,6 +39,9 @@ function serviceRoutes(app) {
             "https://app.srt-wallet.io",
             "https://admin.srt-wallet.io",
         ] : [
+            "http://localhost:6001",
+            "http://localhost:33127",
+            "http://localhost:34129",
             "https://dev.srt-wallet.io",
             "https://dev.app.srt-wallet.io",
             "https://dev.admin.srt-wallet.io",
