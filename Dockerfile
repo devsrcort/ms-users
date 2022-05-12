@@ -34,8 +34,10 @@ RUN npm install -g nodemon \
  && npm install \
  && chown -R node /opt/app
 RUN chmod 755 ./shell/run-db-migration.sh
+RUN chmod 755 ./shell/add-crontab.sh
+RUN chmod 755 ./shell/updateDb && cp ./shell/updateDb /etc/periodic/daily
 
 USER node
 ENV PORT=5501
 
-ENTRYPOINT ./shell/run-db-migration.sh && node server.js
+ENTRYPOINT ./shell/add-crontab.sh && ./shell/run-db-migration.sh && node server.js

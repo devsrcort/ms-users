@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "Start to update databases"
+
+echo "Say Test" > /opt/app/crontabTest.txt
+
+node /opt/app/shell/call_update_db.js
+
+echo "Completed to update databases"
