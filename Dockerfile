@@ -36,8 +36,10 @@ RUN npm install -g nodemon \
 RUN chmod 755 ./shell/run-db-migration.sh
 RUN chmod 755 ./shell/add-crontab.sh
 RUN chmod 755 ./shell/updateDb && cp ./shell/updateDb /etc/periodic/daily
+RUN apk add --update busybox-suid
 
 USER node
 ENV PORT=5501
+RUN apk add --update busybox-suid
 
 ENTRYPOINT ./shell/add-crontab.sh && ./shell/run-db-migration.sh && node server.js
