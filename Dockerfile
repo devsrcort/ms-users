@@ -40,6 +40,5 @@ RUN apk add --update busybox-suid
 
 USER node
 ENV PORT=5501
-RUN apk add --update busybox-suid
 
 ENTRYPOINT ./shell/add-crontab.sh && ./shell/run-db-migration.sh && node server.js
