@@ -5,6 +5,7 @@ const log = require("metalogger")();
 const healthcheck = require("maikai");
 const hbs = require("hbs");
 const session = require('express-session');
+const nunjucks = require('nunjucks');
 
 const cors = require("cors");
 
@@ -12,6 +13,7 @@ require("app-module-path").addPath(path.join(__dirname, "/lib"));
 const dotenv = require('dotenv');
 const passport = require('passport');
 const passportConfig = require('auth');
+const { contentSecurityPolicy } = require("helmet");
 
 dotenv.config();
 passportConfig();
@@ -29,7 +31,12 @@ function serviceRoutes(app) {
     // Database health check is cached for 10000ms = 10 seconds!
     check.addCheck("db", "dbQueryCheck", advCheckers.dbQueryCheck, { minCacheMs: 10000 });
     app.use(check.express());
+    app.set('view engine', 'html');
 
+    nunjucks.configure('./lib/views', {
+        express: app,
+        watch: true,
+    });
     /* eslint-disable global-require */
 
     // Temporary allow all urls
@@ -41,7 +48,7 @@ function serviceRoutes(app) {
         ] : [
             "http://localhost:6001",
             "http://localhost:33127",
-            "http://localhost:34129",
+            "http://192.168.0.7:34129",
             "https://dev.srt-wallet.io",
             "https://dev.app.srt-wallet.io",
             "https://dev.admin.srt-wallet.io",
@@ -108,7 +115,19 @@ exports.setup = function(app, callback) {
 
     /** Adding security best-practices middleware
      * see: https://www.npmjs.com/package/helmet **/
-    app.use(helmet());
+
+    const cspOptions = {
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "script-src": ["'unsafe-inline'"],
+        }
+    }
+
+    app.use(helmet({
+            contentSecurityPolicy: cspOptions,
+        }
+
+    ));
 
     //---- Mounting well-encapsulated application modules (so-called: "mini-apps")
     //---- See: http://expressjs.com/guide/routing.html and http://vimeo.com/56166857
