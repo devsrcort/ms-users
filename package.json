@@ -38,6 +38,7 @@
         "morgan": "^1.9.1",
         "mysql": "^2.18.1",
         "nodebootstrap-server": "^1.12.0",
+        "nunjucks": "^3.2.3",
         "passport": "^0.5.2",
         "passport-jwt": "^4.0.0",
         "passport-local": "^1.0.0",
@@ -64,8 +65,8 @@
     },
     "scripts": {
         "start": "nodemon -L -e js,coffee,jade,handlebars server.js",
-        "lint": "eslint lib test",
-        "pretest": "npm run lint",
+        "lint": "eslint lib test --fix",
+        "pretest": "npm run lint --fix",
         "test": "nyc mocha --bail test/ test/**/*-test.js",
         "test-cov": "nyc mocha test/ test/**/*-test.js"
     },
