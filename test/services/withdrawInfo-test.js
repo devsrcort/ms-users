@@ -8,13 +8,11 @@ const WithdrawInfoService = require("users/services/withdrawInfoService");
 
 describe("withdraw service test", () => {
     const infoService = new WithdrawInfoService();
+
     it("withdraw CRUD Service", () => {
         const testAddr = "0x54c858B5E5c11A11095C74976E2A675734e7f9c6";
         const balance = 10000;
         const chuck = balance * 0.1;
-
-        // await infoService.createWithdrawInfo(testAddr, balance, chuck);
-
     });
 
     // it("withdraw CRUD Service", () => {
@@ -24,7 +22,7 @@ describe("withdraw service test", () => {
 
     //     await infoService.createWithdrawInfo(testAddr, balance, chuck);
     //     // await testService.createWithdrawInfo(testAddr, balance, chuck);
-    //     const withdrawInfo = testService.getWithrawInfo(testAddr);
+    //     const withdrawInfo = testService.getWithdrawInfo(testAddr);
 
     //     assert.equal(withdrawInfo['sWalletAddress'], testAddr, `Wallet address is wrong ${withdrawInfo[0]['sWalletAddress']}`);
     //     assert.equal(withdrawInfo['nAccumAmount'], 0, `nAccumAmount is wrong ${withdrawInfo[0]['nAccumAmount']}`);
