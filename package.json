@@ -44,6 +44,7 @@
         "passport-local": "^1.0.0",
         "promise-mysql": "^5.0.3",
         "spieler": "^1.2.1",
+        "queue": "^6.0.2",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
