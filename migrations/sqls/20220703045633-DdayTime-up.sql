@@ -5,4 +5,3 @@ CREATE TABLE `ddaytime` (
     `destTime` datetime NOT NULL,
     PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-z
