@@ -16,6 +16,7 @@
         "app-module-path": "^2.1.0",
         "aws-sdk": "^2.1127.0",
         "bluebird": "^3.7.2",
+        "bn.js": "^5.2.1",
         "body-parser": "^1.19.0",
         "config": "^3.3.6",
         "cors": "^2.8.5",
@@ -48,6 +49,7 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "axios-mock-adapter": "^1.21.1",
         "db-migrate": "^0.11.11",
         "db-migrate-mysql": "^2.1.1",
         "after": "^0.8.1",
