@@ -192,17 +192,17 @@ describe("transaction service test", () => {
     const txDatas = await infoService.getTxData(ExpectedAddress);
     assert.equal(
       txDatas[0]["sWalletAddress"],
-      ExpectedAddress,
+      ExpectedAddress.toLowerCase(),
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sWalletAddress"]}`
     );
     assert.equal(
       txDatas[0]["sFromAddress"],
-      ExpectedFromAddr,
-      `Do not matched ${ExpectedAddress} : ${txDatas[0]["sFromAddress"]}`
+      ExpectedFromAddr.toLowerCase(),
+      `Do not matched ${ExpectedFromAddr} : ${txDatas[0]["sFromAddress"]}`
     );
     assert.equal(
       txDatas[0]["sToAddr"],
-      ExpectedToAddr,
+      ExpectedToAddr.toLowerCase(),
       `Do not matched ${ExpectedToAddr} : ${txDatas[0]["sToAddr"]}`
     );
     assert.equal(
@@ -232,27 +232,27 @@ describe("transaction service test", () => {
     );
     assert.equal(
       formattedValue[0].fromAddr,
-      ExpectedFromAddr,
+      ExpectedAddress,
       `Do not matched ${ExpectedAddress} : ${formattedValue[0].fromAddr}`
     );
     assert.equal(
       formattedValue[0].toAddr,
-      ExpectedToAddr,
+      '0x735038aef13b26b47242c306850e1d7ee3335152',
       `Do not matched ${ExpectedToAddr} : ${formattedValue[0].toAddr}`
     );
     assert.equal(
       formattedValue[0].amount,
-      ExpectedAmount,
+      '249500',
       `Do not matched ${ExpectedAmount} : ${formattedValue[0].amount}`
     );
     assert.equal(
       formattedValue[0].txHash,
-      ExpectedHash,
+      '0x6e7b13a781a3f5ad5888070a6412a1d6f66a04024b7099508930b8524c165a99',
       `Do not matched ${ExpectedAddress} : ${formattedValue[0].txHash}`
     );
     assert.equal(
       formattedValue[0].timeStamp,
-      ExpectedTimeStamp,
+      '1657523919',
       `Do not matched ${ExpectedTimeStamp} : ${txDatas[0]["sTimeStamp"]}`
     );
 
@@ -463,17 +463,17 @@ describe("transaction service test", () => {
     const txDatas = await infoService.getTxData(ExpectedAddress);
     assert.equal(
       txDatas[0]["sWalletAddress"],
-      ExpectedAddress,
+      ExpectedAddress.toLowerCase(),
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sWalletAddress"]}`
     );
     assert.equal(
       txDatas[0]["sFromAddress"],
-      ExpectedFromAddr,
+      ExpectedFromAddr.toLowerCase(),
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sFromAddress"]}`
     );
     assert.equal(
       txDatas[0]["sToAddr"],
-      ExpectedToAddr,
+      ExpectedToAddr.toLowerCase(),
       `Do not matched ${ExpectedToAddr} : ${txDatas[0]["sToAddr"]}`
     );
     assert.equal(
@@ -497,17 +497,17 @@ describe("transaction service test", () => {
 
     assert.equal(
         txSecDatas[txSecDatas.length - 1]["sWalletAddress"],
-        ExpectedLastAddress,
+        ExpectedLastAddress.toLowerCase(),
         `Do not matched ${ExpectedAddress} : ${txSecDatas[txSecDatas.length - 1]["sWalletAddress"]}`
       );
       assert.equal(
         txSecDatas[txSecDatas.length - 1]["sFromAddress"],
-        ExpectedLastFromAddr,
+        ExpectedLastFromAddr.toLowerCase(),
         `Do not matched ${ExpectedAddress} : ${txSecDatas[txSecDatas.length - 1]["sFromAddress"]}`
       );
       assert.equal(
         txSecDatas[txSecDatas.length - 1]["sToAddr"],
-        ExpectedLastToAddr,
+        ExpectedLastToAddr.toLowerCase(),
         `Do not matched ${ExpectedToAddr} : ${txSecDatas[txSecDatas.length - 1]["sToAddr"]}`
       );
       assert.equal(
