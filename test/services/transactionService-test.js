@@ -30,32 +30,32 @@ describe("transaction service test", () => {
     const txDatas = await infoService.getTxData(ExpectedAddress);
 
     assert.equal(
-      txDatas[0]["sWalletAddress"],
+      txDatas[txDatas.length - 1]["sWalletAddress"],
       ExpectedAddress,
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sWalletAddre"]}`
     );
     assert.equal(
-      txDatas[0]["sFromAddress"],
+      txDatas[txDatas.length - 1]["sFromAddress"],
       ExpectedFromAddr,
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sFromAddress"]}`
     );
     assert.equal(
-      txDatas[0]["sToAddr"],
+      txDatas[txDatas.length - 1]["sToAddr"],
       ExpectedToAddr,
       `Do not matched ${ExpectedToAddr} : ${txDatas[0]["sToAddr"]}`
     );
     assert.equal(
-      txDatas[0]["nAmount"],
+      txDatas[txDatas.length - 1]["nAmount"],
       ExpectedAmount,
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["nAmount"]}`
     );
     assert.equal(
-      txDatas[0]["sTxHash"],
+      txDatas[txDatas.length - 1]["sTxHash"],
       ExpectedHash,
       `Do not matched ${ExpectedAddress} : ${txDatas[0]["sTxHash"]}`
     );
     assert.equal(
-      txDatas[0]["sTimeStamp"],
+      txDatas[txDatas.length - 1]["sTimeStamp"],
       ExpectedTimestamp,
       `Do not matched ${ExpectedTimestamp} : ${txDatas[0]["sTimeStamp"]}`
     );
