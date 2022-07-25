@@ -10,6 +10,7 @@ const nunjucks = require('nunjucks');
 const cors = require("cors");
 
 require("app-module-path").addPath(path.join(__dirname, "/lib"));
+const morgan = require('morgan');
 const dotenv = require('dotenv');
 const passport = require('passport');
 const passportConfig = require('auth');
@@ -31,6 +32,8 @@ function serviceRoutes(app) {
     // Database health check is cached for 10000ms = 10 seconds!
     check.addCheck("db", "dbQueryCheck", advCheckers.dbQueryCheck, { minCacheMs: 10000 });
     app.use(check.express());
+    app.use(morgan('dev'));
+
     app.set('view engine', 'html');
 
     nunjucks.configure('./lib/views', {
